@@ -62,6 +62,6 @@ wk.register({
         o = {"<cmd>lua vim.diagnostic.open_float()<cr>", "文档符号"},
         p = {"<cmd>lua vim.diagnostic.goto_prev()<cr>", "上一个"},
         n = {"<cmd>lua vim.diagnostic.goto_next()<cr>", "下一个"},
-        f = {"<cmd>lua vim.lsp.buf.formatting()<cr>", "格式化"},
+        f = {"<cmd>Format<cr>", "格式化"},
      }
 },{})

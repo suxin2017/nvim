@@ -1,5 +1,6 @@
 return {
   "mhartington/formatter.nvim",
+  event = "InsertEnter",
   config = function() 
 
     require("formatter").setup({

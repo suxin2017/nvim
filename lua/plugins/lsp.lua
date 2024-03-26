@@ -1,6 +1,8 @@
 return {
   "williamboman/mason-lspconfig.nvim",
+  event = "InsertEnter",
   dependencies = {"williamboman/mason.nvim", "neovim/nvim-lspconfig", { "folke/neodev.nvim", opts = {} }},
+
   config = function()
     require("mason").setup()
     require("mason-lspconfig").setup()

@@ -20,6 +20,8 @@ local notify = require('plugins/notify')
 local text_edit = require('plugins/text-edit')
 local text_obj = require('plugins/text-obj')
 local treesitter = require('plugins/treesitter')
+local dashboard = require('plugins/dashboard')
+local gitsigns = require('plugins/gitsigns')
 
 local plugins = {
   -- 主题
@@ -84,7 +86,9 @@ local plugins = {
 
   notify,
   text_edit,
-  text_obj
+  text_obj,
+  dashboard,
+  gitsigns
 }
 
 

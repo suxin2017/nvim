@@ -34,8 +34,6 @@ opt.smartcase = true
 opt.termguicolors = true
 opt.signcolumn = "yes"
 
--- 主题
-vim.cmd[[colorscheme onedark]]
 
 -- lsp 配置
 vim.diagnostic.config({
@@ -47,3 +45,7 @@ vim.diagnostic.config({
 
 vim.g.loaded_netrwPlugin = 1
 vim.g.loaded_netrw = 1
+
+vim.wo.foldmethod = "expr"
+vim.wo.foldexpr = "nvim_treesitter#foldexpr()"
+vim.wo.foldenable = false

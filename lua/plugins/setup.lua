@@ -19,6 +19,7 @@ local trouble = require('plugins/trouble')
 local notify = require('plugins/notify')
 local text_edit = require('plugins/text-edit')
 local text_obj = require('plugins/text-obj')
+local treesitter = require('plugins/treesitter')
 
 local plugins = {
   -- 主题
@@ -30,10 +31,14 @@ local plugins = {
   --   },
   {
     "navarasu/onedark.nvim",
-
     lazy = false,
     priority = 1000,
-    opts = {},
+    config = function()
+      require('onedark').setup {
+        style="cool"
+      }
+      require('onedark').load()
+    end
   },
   -- 状态栏
   {
@@ -44,56 +49,13 @@ local plugins = {
   -- buffer 行
   {'akinsho/bufferline.nvim', version = "*", dependencies = 'nvim-tree/nvim-web-devicons',config = function() require("bufferline").setup() end},
   -- 语法高亮
-  {'nvim-treesitter/nvim-treesitter',build = ":TSUpdate",   event = { "BufReadPre", "BufNewFile" },
-  dependencies = {
-    "nvim-treesitter/nvim-treesitter-textobjects",
-  },config = function ()
-    local treesitter = require("nvim-treesitter.configs")
-
-    -- configure treesitter
-    treesitter.setup({ -- enable syntax highlighting
-      highlight = {
-        enable = true,
-      },
-      -- enable indentation
-      indent = { enable = true },
-      -- ensure these language parsers are installed
-      ensure_installed = {
-        "json",
-        "javascript",
-        "typescript",
-        "tsx",
-        "yaml",
-        "html",
-        "css",
-        "markdown",
-        "markdown_inline",
-        "svelte",
-        "bash",
-        "lua",
-        "vim",
-        "gitignore",
-      },
-      incremental_selection = {
-        enable = true,
-        keymaps = {
-          init_selection = "<C-space>",
-          node_incremental = "<C-space>",
-          scope_incremental = false,
-          node_decremental = "<bs>",
-        },
-      },
-    })
-    
-  end},
+  treesitter,
   -- 文件管理相关
   telescoptConfig, -- 快捷键提示
   {"folke/which-key.nvim", event = "VeryLazy"},
 
   -- { "folke/neoconf.nvim", cmd = "Neoconf" }, -- 全局配置和启动配置文件
 
-  -- 启动时间
-  "dstein64/vim-startuptime", -- 格式化
   {
     "mhartington/formatter.nvim",
     config = function() require("formatter").setup() end
@@ -111,11 +73,8 @@ local plugins = {
     opts = {
       -- add any options here
     },
-    lazy = false,
   },
 
-  -- 自动补全括号
-  "windwp/nvim-autopairs", 
 
   -- 格式化
   formatter,

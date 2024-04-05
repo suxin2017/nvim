@@ -9,6 +9,7 @@ opt.tabstop = 2
 opt.shiftwidth = 2
 opt.expandtab = true
 opt.autoindent = true
+opt.smartindent = true
 
 -- 防止包裹
 opt.wrap = false
@@ -35,12 +36,15 @@ opt.termguicolors = true
 opt.signcolumn = "yes"
 
 
+-- 命令模式行高
+vim.o.cmdheight = 1
+
 -- lsp 配置
 vim.diagnostic.config({
     virtual_text = true,
     signs = true,
     -- 在输入模式下也更新提示，设置为 true 也许会影响性能
-    update_in_insert = true,
+    -- update_in_insert = true,
 })
 
 vim.g.loaded_netrwPlugin = 1

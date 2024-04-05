@@ -1,11 +1,13 @@
 {
   "name": "example-snippets",
-  "categories": ["Snippets"],
+ "engines": {
+        "vscode": "^1.11.0"
+    },
   "contributes": {
     "snippets": [
       {
         "language": "typescriptreact",
-        "path": "./typescriptreact.jsonc"
+        "path": "./typescriptreact.json"
       }
     ]
   }

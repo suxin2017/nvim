@@ -1,9 +1,4 @@
 {
-	// Place your snippets for typescriptreact here. Each snippet is defined under a snippet name and has a prefix, body and 
-	// description. The prefix is what is used to trigger the snippet and the body will be expanded and inserted. Possible variables are:
-	// $1, $2 for tab stops, $0 for the final cursor position, and ${1:label}, ${2:another} for placeholders. Placeholders with the 
-	// same ids are connected.
-	// Example:
 	"react ts page": {
 		"prefix": "tpag",
 		"body": [
@@ -14,7 +9,7 @@
 			"}",
 			"",
 			"export default ${TM_DIRECTORY/.*\\x2f(.*)/${1}/}"
-		],
+		]
 	},
 	"react ts component by file": {
 		"prefix": "tfco",
@@ -26,8 +21,8 @@
 			"",
 			"export const ${TM_FILENAME_BASE/(.)(.*)/${1:/upcase}${2:/camelcase}/}: React.FC<I${TM_FILENAME_BASE/(.)(.*)/${1:/upcase}${2:/camelcase}/}Props> = (props) => {",
 			"\treturn <div>${TM_FILENAME_BASE/(.)(.*)/${1:/upcase}${2:/camelcase}/}</div>",
-			"}",
-		],
+			"}"
+		]
 	},
 	"react ts component by directory": {
 		"prefix": "tdco",
@@ -39,22 +34,22 @@
 			"",
 			"export const ${TM_DIRECTORY/.*\\x2f(.*)/${1}/}: React.FC<I${TM_DIRECTORY/.*\\x2f(.*)/${1}/}Props> = (props) => {",
 			"\treturn <div> ${TM_DIRECTORY/.*\\x2f(.*)/${1}/}</div>",
-			"}",
-		],
+			"}"
+		]
 	},
 	"arrow react component function ": {
 		"prefix": "acf",
 		"body": [
 			"const ${1}:React.FC = ()=> {",
 			"\treturn $2",
-			"}",
-		],
+			"}"
+		]
 	},
 	"arrow function": {
 		"prefix": "ar",
 		"body": [
 			"($1)=>{$2}"
-		],
+		]
 	},
 	"cs": {
 		"prefix": "cs",

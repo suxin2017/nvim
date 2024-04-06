@@ -23,7 +23,7 @@ return {
 		local cmp = require("cmp")
 		require("luasnip.loaders.from_vscode").lazy_load()
 		require("luasnip.loaders.from_vscode").lazy_load({ paths = { "~/.config/nvim/lua/snippets" } })
-
+		local types = require("cmp.types")
 		cmp.setup({
 			snippet = {
 				-- REQUIRED - you must specify a snippet engine
@@ -38,21 +38,19 @@ return {
 				-- completion = cmp.config.window.bordered(),
 				-- documentation = cmp.config.window.bordered(),
 			},
-			priority_weight = 1.0,
 			sorting = {
-
+				priority_weight = 2,
 				comparators = {
-					-- cmp.score_offset, -- not good at all
-					cmp.locality,
-					cmp.recently_used,
-					cmp.score, -- based on :  score = score + ((#sources - (source_index - 1)) * sorting.priority_weight)
 					cmp.offset,
-					cmp.order,
-					-- cmp.scopes, -- what?
+					cmp.exact,
+					-- cmp.scopes,
+					cmp.score,
+					cmp.recently_used,
+					cmp.locality,
+					cmp.kind,
 					-- cmp.sort_text,
-					-- cmp.exact,
-					-- cmp.kind,
-					-- cmp.length, -- useless
+					cmp.length,
+					cmp.order,
 				},
 			},
 			mapping = cmp.mapping.preset.insert({

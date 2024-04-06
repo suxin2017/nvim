@@ -26,6 +26,8 @@ local treesitter = require("plugins/treesitter")
 local dashboard = require("plugins/dashboard")
 local git = require("plugins/git")
 local text_rain = require("plugins/text-rain")
+local flash = require("plugins/flash")
+local indent = require("plugins/indent")
 
 local plugins = {
 	-- 主题
@@ -98,25 +100,8 @@ local plugins = {
 
 	-- 一个可以让文字下雨的插件
 	text_rain,
-	{
-		"lukas-reineke/indent-blankline.nvim",
-		config = function()
-			vim.g.indent_blankline_filetype_exclude = {
-				"dashboard",
-				"TelescopePrompt",
-				"TelescopeResults",
-				"mason",
-				"lspinfo",
-				"help",
-				"terminal",
-				"lazy",
-				"",
-			}
-		end,
-		event = "InsertEnter",
-		main = "ibl",
-		opts = {},
-	},
+	indent,
+  flash,
 }
 
 require("lazy").setup(plugins)

@@ -3,14 +3,23 @@ local wk = require("which-key")
 vim.g.mapleader = " "
 local map = vim.api.nvim_set_keymap
 
-local opt = {
-	noremap = true,
-	silent = true,
-}
 -- ctrl + /
 map("n", "<C-_>", "gcc", { noremap = false })
 map("v", "<C-_>", "gcc", { noremap = false })
 
+wk.register({
+	-- goto
+	g = {
+		d = { "<cmd>Lspsaga goto_definition<cr>", "定义" },
+		h = { "<cmd>Lspsaga hover_doc<cr>", "悬停" },
+		D = { "<cmd>Lspsaga peek_definition<cr>", "声明" },
+		i = { "<cmd>Lspsaga finder imp<cr>", "实现" },
+		r = { "<cmd>Lspsaga finder ref<cr>", "引用" },
+		o = { "<cmd>Lspsaga outline<cr>", "文档符号" },
+		p = { "<cmd>l ua vim.diagnostic.goto_prev()<cr>", "上一个" },
+		n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "下一个" },
+	},
+})
 -- Lua
 wk.register({
 	f = {
@@ -21,7 +30,8 @@ wk.register({
 	},
 	e = { "<cmd>NvimTreeFocus<cr>", "文件树" },
 	c = {
-		a = { "<cmd>lua vim.lsp.buf.code_action()<CR>", "代码操作" },
+		a = { "<cmd>Lspsaga code_action<CR>", "代码操作" },
+    r = { "<cmd>Lspsaga rename<CR>","rename"}
 	},
 	r = {
 		n = { "<cmd>lua vim.lsp.buf.rename()<CR>", "重命名" },
@@ -35,9 +45,10 @@ wk.register({
 		l = { "<cmd>TroubleToggle loclist<cr>", "Trouble LocList" },
 		r = { "<cmd>TroubleToggle lsp_references<cr>", "刷新问题" },
 	},
-  -- search
+	-- search
 	s = {
 		n = { ":set hlsearch!<cr>", "高亮开关" },
+		f = { "<cmd>w<cr>", "save file" },
 	},
 	-- window
 	w = {
@@ -50,16 +61,4 @@ wk.register({
 		u = { ":BufferLineCycleNext<cr>", "后一个bufferline" },
 		["so"] = { ":BufferLineCloseOthers<cr>", "关闭其他bufferline" },
 	},
-	-- goto
-	g = {
-		d = { "<cmd>lua vim.lsp.buf.definition()<cr>", "定义" },
-		h = { "<cmd>lua vim.lsp.buf.hover()<cr>", "悬停" },
-		D = { "<cmd>lua vim.lsp.buf.declaration()<cr>", "声明" },
-		i = { "<cmd>lua vim.lsp.buf.implementation()<cr>", "实现" },
-		r = { "<cmd>lua vim.lsp.buf.references()<cr>", "引用" },
-		o = { "<cmd>lua vim.diagnostic.open_float()<cr>", "文档符号" },
-		p = { "<cmd>lua vim.diagnostic.goto_prev()<cr>", "上一个" },
-		n = { "<cmd>lua vim.diagnostic.goto_next()<cr>", "下一个" },
-	},
 }, { prefix = "<leader>" })
-

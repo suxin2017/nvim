@@ -32,6 +32,6 @@ return {
 				})
 			end,
 		})
-		require("lspsaga").setup({})
+		require("lspsaga").setup({ })
 	end,
 }
